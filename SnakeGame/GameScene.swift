@@ -165,6 +165,24 @@ class GameScene: SKScene {
         spring14.frequency = 0
         spring14.damping = 0
         
+        /*
+        scene!.physicsWorld.add(spring0)
+        scene!.physicsWorld.add(spring1)
+        scene!.physicsWorld.add(spring2)
+        scene!.physicsWorld.add(spring3)
+        scene!.physicsWorld.add(spring4)
+        scene!.physicsWorld.add(spring5)
+        scene!.physicsWorld.add(spring6)
+        scene!.physicsWorld.add(spring7)
+        scene!.physicsWorld.add(spring8)
+        scene!.physicsWorld.add(spring9)
+        scene!.physicsWorld.add(spring10)
+        scene!.physicsWorld.add(spring11)
+        scene!.physicsWorld.add(spring12)
+        scene!.physicsWorld.add(spring13)
+        scene!.physicsWorld.add(spring14)
+      */
+        
         
       
         let border = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -173,15 +191,52 @@ class GameScene: SKScene {
         border.restitution = 1
         
         self.physicsBody = border
+    
     }
     
-    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+       
+        for touch in touches{
             
+            let location = touch.location(in: self)
             
-            
+            head.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            eye.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            mouth.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            /*
+            bodys0.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            bodys1.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            bodys2.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            bodys3.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            bodys4.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            bodys5.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            bodys6.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            bodys7.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            bodys8.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            bodys9.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            bodys10.run(SKAction.moveTo(x: location.x, duration: 0.201))
+            bodys11.run(SKAction.moveTo(x: location.x, duration: 0.201))
+             */
+            head.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            eye.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            mouth.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            /*
+            bodys0.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            bodys1.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            bodys2.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            bodys3.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            bodys4.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            bodys5.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            bodys6.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            bodys7.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            bodys8.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            bodys9.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            bodys10.run(SKAction.moveTo(y: location.y, duration: 0.201))
+            bodys11.run(SKAction.moveTo(y: location.y, duration: 0.201))
+ */
         }
     
     
     
+}
 }
