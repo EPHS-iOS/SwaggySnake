@@ -44,6 +44,128 @@ class GameScene: SKScene {
         head = self.childNode(withName: "bodys12") as! SKSpriteNode
         eye = self.childNode(withName: "eye") as! SKSpriteNode
         mouth = self.childNode(withName: "mouth") as! SKSpriteNode
+        
+        let spring0 = SKPhysicsJointSpring.joint(withBodyA: bodys0.physicsBody!,
+                                                bodyB: bodys1.physicsBody!,
+                                                anchorA: bodys0.position,
+                                                anchorB: bodys1.position)
+        
+        spring0.frequency = 0.5
+        spring0.damping = 0.2
+        
+        let spring1 = SKPhysicsJointSpring.joint(withBodyA: bodys1.physicsBody!,
+                                                bodyB: bodys2.physicsBody!,
+                                                anchorA: bodys1.position,
+                                                anchorB: bodys2.position)
+        
+        spring1.frequency = 0.5
+        spring1.damping = 0.2
+        
+        let spring2 = SKPhysicsJointSpring.joint(withBodyA: bodys2.physicsBody!,
+                                                bodyB: bodys3.physicsBody!,
+                                                anchorA: bodys2.position,
+                                                anchorB: bodys3.position)
+        
+        spring2.frequency = 0.5
+        spring2.damping = 0.2
+        
+        let spring3 = SKPhysicsJointSpring.joint(withBodyA: bodys3.physicsBody!,
+                                                bodyB: bodys4.physicsBody!,
+                                                anchorA: bodys3.position,
+                                                anchorB: bodys4.position)
+        
+        spring3.frequency = 0.5
+        spring3.damping = 0.2
+        
+        let spring4 = SKPhysicsJointSpring.joint(withBodyA: bodys4.physicsBody!,
+                                                bodyB: bodys5.physicsBody!,
+                                                anchorA: bodys4.position,
+                                                anchorB: bodys5.position)
+        
+        spring4.frequency = 0.5
+        spring4.damping = 0.2
+        
+        let spring5 = SKPhysicsJointSpring.joint(withBodyA: bodys4.physicsBody!,
+                                                bodyB: bodys5.physicsBody!,
+                                                anchorA: bodys4.position,
+                                                anchorB: bodys5.position)
+        
+        spring5.frequency = 0.5
+        spring5.damping = 0.2
+        
+        let spring6 = SKPhysicsJointSpring.joint(withBodyA: bodys5.physicsBody!,
+                                                bodyB: bodys6.physicsBody!,
+                                                anchorA: bodys5.position,
+                                                anchorB: bodys6.position)
+        
+        spring6.frequency = 0.5
+        spring6.damping = 0.2
+        
+        let spring7 = SKPhysicsJointSpring.joint(withBodyA: bodys6.physicsBody!,
+                                                bodyB: bodys7.physicsBody!,
+                                                anchorA: bodys6.position,
+                                                anchorB: bodys7.position)
+        
+        spring7.frequency = 0.5
+        spring7.damping = 0.2
+        
+        let spring8 = SKPhysicsJointSpring.joint(withBodyA: bodys7.physicsBody!,
+                                                bodyB: bodys8.physicsBody!,
+                                                anchorA: bodys7.position,
+                                                anchorB: bodys8.position)
+        
+        spring8.frequency = 0.5
+        spring8.damping = 0.2
+        
+        let spring9 = SKPhysicsJointSpring.joint(withBodyA: bodys8.physicsBody!,
+                                                bodyB: bodys9.physicsBody!,
+                                                anchorA: bodys8.position,
+                                                anchorB: bodys9.position)
+        
+        spring9.frequency = 0.5
+        spring9.damping = 0.2
+        
+        let spring10 = SKPhysicsJointSpring.joint(withBodyA: bodys9.physicsBody!,
+                                                bodyB: bodys10.physicsBody!,
+                                                anchorA: bodys9.position,
+                                                anchorB: bodys10.position)
+        
+        spring10.frequency = 0.5
+        spring10.damping = 0.2
+        
+        let spring11 = SKPhysicsJointSpring.joint(withBodyA: bodys10.physicsBody!,
+                                                bodyB: bodys11.physicsBody!,
+                                                anchorA: bodys10.position,
+                                                anchorB: bodys11.position)
+        
+        spring11.frequency = 0.5
+        spring11.damping = 0.2
+        
+        let spring12 = SKPhysicsJointSpring.joint(withBodyA: bodys11.physicsBody!,
+                                                bodyB: head.physicsBody!,
+                                                anchorA: bodys11.position,
+                                                anchorB: head.position)
+        
+        spring12.frequency = 0.5
+        spring12.damping = 0.2
+        
+        let spring13 = SKPhysicsJointSpring.joint(withBodyA: head.physicsBody!,
+                                                bodyB: eye.physicsBody!,
+                                                anchorA: head.position,
+                                                anchorB: eye.position)
+        
+        spring13.frequency = 0
+        spring13.damping = 0
+        
+        let spring14 = SKPhysicsJointSpring.joint(withBodyA: head.physicsBody!,
+                                                bodyB: mouth.physicsBody!,
+                                                anchorA: head.position,
+                                                anchorB: mouth.position)
+        
+        spring14.frequency = 0
+        spring14.damping = 0
+        
+        
       
         let border = SKPhysicsBody(edgeLoopFrom: self.frame)
         
