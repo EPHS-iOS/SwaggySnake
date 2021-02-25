@@ -31,15 +31,17 @@ class GameScene: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
-        for touch in touches{
             
-            let location = touch.location(in: self)
-            
-          
+            for touch in touches{
+                
+                let location = touch.location(in: self)
+                
+                Snake.run(SKAction.applyImpulse(CGVector(dx: 0.003, dy: 0.02), duration: 0.2))
+                
+            }
+    }
         }
     
     
-    
-}
-}
+
+
