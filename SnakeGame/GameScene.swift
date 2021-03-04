@@ -11,14 +11,15 @@ import GameplayKit
 class GameScene: SKScene {
     
     var Snake = SKSpriteNode()
-    
+    let cam = SKCameraNode()
+    let player = SKSpriteNode()
 
     override func didMove(to view: SKView){
 
 
         Snake = self.childNode(withName: "Snake") as! SKSpriteNode
        
-        
+        self.camera = cam
         
       
         let border = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -39,6 +40,12 @@ class GameScene: SKScene {
                 Snake.run(SKAction.applyImpulse(CGVector(dx: 0.003, dy: 0.02), duration: 0.2))
                 
             }
+    }
+    override func update(_ currentTime: CFTimeInterval)
+    {
+        /* Called before each frame is rendered */
+        cam.position.y = Snake.position.y
+        cam.position.x=CGFloat(-430)
     }
         }
     
