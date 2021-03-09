@@ -23,6 +23,7 @@ class GameScene: SKScene {
         border.restitution = 0
         self.physicsBody = border
     }
+  
     /*
      override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
      if !hasSwag{
