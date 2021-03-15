@@ -33,6 +33,27 @@ class GameScene: SKScene {
         
     }
     
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !hasSwag{
+            if let touch = touches.first{
+                let touchLocation = touch.location(in: self)
+                let touched = nodes(at: touchLocation)
+                if !touched.isEmpty{
+                    for node in touched{
+                        if let sprite = node as? SKSpriteNode{
+                            if sprite == Snake{
+                                let dx = (originalSwagLocation.x - touchLocation.x)/2.5
+                                let dy = (originalSwagLocation.y - touchLocation.y)*25
+                                let impulse = CGVector(dx: dx, dy: dy)
+                                Snake.physicsBody?.applyImpulse(impulse)
+                                hasSwag = false
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches {
@@ -50,19 +71,10 @@ class GameScene: SKScene {
                 
             } else if touchedNode == blastOff{
                 
-                if arr.zRotation == 0{
-                    
-                    let dx = arr.size.height*0
-                    let dy = arr.size.height*sin(90 + arr.zRotation)
-                    Snake.physicsBody?.applyImpulse(CGVector(dx: dx, dy: dy))
-                    
-                } else{
-                    
-                    let dx = arr.size.height*cos(90 + arr.zRotation)
-                    let dy = arr.size.height*sin(90 + arr.zRotation)
-                    Snake.physicsBody?.applyImpulse(CGVector(dx: dx, dy: dy))
-                    
-                }
+                let dx = arr.size.height*cos(90 + arr.zRotation)
+                let dy = arr.size.height*sin(90 + arr.zRotation) * 7
+                
+                Snake.physicsBody?.applyImpulse(CGVector(dx: dx, dy: dy))
                 
             }
             
@@ -75,7 +87,6 @@ class GameScene: SKScene {
         /* Called before each frame is rendered */
         cam.position.y = Snake.position.y
         cam.position.x=CGFloat(-430)
-        butt.position.y = Snake.position.y - 101.53
         butt.position.y = Snake.position.y - 400
         butt2.position.y = Snake.position.y - 400
         blastOff.position.y = Snake.position.y - 400
@@ -83,3 +94,4 @@ class GameScene: SKScene {
         
     }
 }
+
