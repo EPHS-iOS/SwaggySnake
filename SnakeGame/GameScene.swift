@@ -57,7 +57,7 @@ class GameScene: SKScene {
       } else if touchedNode == butt2{
         arr.zRotation = arr.zRotation - 0.2
       } else if touchedNode == blastOff{
-        Snake.physicsBody?.applyImpulse(CGVector(dx: (arr.size.height*cos(90 + arr.zRotation)), dy: (arr.size.height*sin(90 + arr.zRotation))))
+        Snake.physicsBody?.applyImpulse(CGVector(dx: (arr.size.height*sin(arr.zRotation)), dy: (arr.size.height*cos(arr.zRotation))))
       }
     }
   }
