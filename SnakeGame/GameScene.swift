@@ -18,11 +18,15 @@ class GameScene: SKScene {
   var butpress = false
   var but2press = false
   var blpress = false
+ 
   override func didMove(to view: SKView){
     butt = self.childNode(withName: "butt") as! SKSpriteNode
     butt2 = self.childNode(withName: "butt2") as! SKSpriteNode
     blastOff = self.childNode(withName: "blastOff") as! SKSpriteNode
     Snake = self.childNode(withName: "Snake") as! SKSpriteNode
+    Snake.physicsBody = SKPhysicsBody(texture: Snake.texture!, size: Snake.size)
+    Snake.physicsBody?.friction=0.7
+    Snake.physicsBody?.velocity.dy=0
     arr = self.childNode(withName: "arr") as! SKSpriteNode
     self.camera = cam
     let border = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -64,7 +68,7 @@ class GameScene: SKScene {
       but2press = false
     }
     if blastOff.contains(touch.location(in: self)){
-      Snake.physicsBody?.applyImpulse(CGVector(dx: (arr.size.height*sin(-arr.zRotation)), dy: (arr.size.height*cos(-arr.zRotation))))
+        Snake.physicsBody?.applyImpulse(CGVector(dx: (arr.size.height*sin(-arr.zRotation)), dy: (arr.size.height*cos(-arr.zRotation))*1.4))
       blpress = false
     }
   }
@@ -78,9 +82,13 @@ class GameScene: SKScene {
     }
     cam.position.y = Snake.position.y
     cam.position.x=CGFloat(-2028.34)
+    blastOff.position.y=Snake.position.y-400
     butt.position.y = Snake.position.y - 400
     butt2.position.y = Snake.position.y - 400
-    blastOff.position.y = Snake.position.y - 400
     arr.position = Snake.position
+    
+    if ((Snake.physicsBody?.velocity.dy)! >= 0.5)||((Snake.physicsBody?.velocity.dy)! <= -0.5){
+        blastOff.position.y=Snake.position.y-3145643264
+    }
   }
 }
