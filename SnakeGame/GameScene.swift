@@ -12,7 +12,8 @@ class GameScene: SKScene {
   var blastOff = SKSpriteNode()
   var arr = SKSpriteNode()
   let cam = SKCameraNode()
-  let player = SKSpriteNode()
+
+
   var hasSwag = false
   var originalSwagLocation = CGPoint()
   var butpress = false
@@ -23,10 +24,13 @@ class GameScene: SKScene {
     butt = self.childNode(withName: "butt") as! SKSpriteNode
     butt2 = self.childNode(withName: "butt2") as! SKSpriteNode
     blastOff = self.childNode(withName: "blastOff") as! SKSpriteNode
+    
     Snake = self.childNode(withName: "Snake") as! SKSpriteNode
     Snake.physicsBody = SKPhysicsBody(texture: Snake.texture!, size: Snake.size)
     Snake.physicsBody?.friction=0.7
     Snake.physicsBody?.velocity.dy=0
+    Snake.physicsBody?.allowsRotation = false
+    
     arr = self.childNode(withName: "arr") as! SKSpriteNode
     self.camera = cam
     let border = SKPhysicsBody(edgeLoopFrom: self.frame)
