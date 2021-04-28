@@ -27,6 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
  
   override func didMove(to view: SKView){
     physicsWorld.contactDelegate = self
+    
     butt = self.childNode(withName: "butt") as! SKSpriteNode
     butt2 = self.childNode(withName: "butt2") as! SKSpriteNode
     blastOff = self.childNode(withName: "blastOff") as! SKSpriteNode
@@ -138,10 +139,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     if Snake.position.y>10060{
         changeSpaceGround()
     }
-   
     
-    if gameOver == true{
+    
+    if Snake.position.y<14000{
+        gameOver=false
+      
+    }
+   
+    if Snake.position.y>15920{
+        gameOver=true
         
+    }
+    if gameOver == true{
+        let trans = SKTransition.reveal(with: .down, duration: 1.0)
+
+        let nextScene = endScene(fileNamed: "endScene")
+        nextScene!.scaleMode = .aspectFill
+
+        scene?.view?.presentScene(nextScene!, transition: trans)
     }
     
     
